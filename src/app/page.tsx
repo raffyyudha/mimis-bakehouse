@@ -52,8 +52,8 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
-  const openWhatsApp = (message: string) => {
-    window.open(`https://wa.me/6597254135?text=${encodeURIComponent(message)}`, "_blank");
+  const openWhatsApp = (message?: string) => {
+    window.open("https://wa.me/6597254135", "_blank");
   };
 
   return (
@@ -93,10 +93,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <Image src="/logo.png" alt="Mon Chéri Bake Logo" width={60} height={60} className="rounded-full object-cover" />
-            <div className="text-left">
-              <h1 className="font-script text-3xl text-[#5a4a3a] leading-none">Mon Chéri</h1>
-              <p className="text-[#c084a0] text-[11px] tracking-[0.2em] font-medium mt-0.5 leading-none">BAKE</p>
-            </div>
+            <span className="text-2xl font-bold text-[#5a4a3a] whitespace-nowrap leading-none tracking-wide">Mon Chéri Bake</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700">
@@ -191,7 +188,7 @@ export default function Home() {
         }}
       >
         <div className="max-w-4xl mx-auto px-4">
-          <p className="font-script text-4xl text-white mb-2" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6), 2px 2px 10px rgba(0,0,0,0.4)' }}>Welcome to...</p>
+          <p className="text-2xl font-semibold text-white mb-2 tracking-wide" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6), 2px 2px 10px rgba(0,0,0,0.4)' }}>Welcome to...</p>
           <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-wide uppercase whitespace-nowrap" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7), 0 0 15px rgba(0,0,0,0.5)' }}>
             MON CHÉRI BAKE
           </h2>
@@ -216,7 +213,7 @@ export default function Home() {
       {/* It's All About the Cake */}
       <section id="specialties" className="py-16 bg-white border-b border-[#e6dace]/50">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="font-script text-5xl text-[#2e2b2d] mb-2">Our Selected Specialties</h2>
+          <h2 className="text-4xl font-bold text-[#2e2b2d] mb-2 tracking-wide">Our Selected Specialties</h2>
           <p className="text-gray-600 mb-10">Baked with joy, made with love, and created from the heart. ❤️</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {categories.map((cat) => (
@@ -249,7 +246,7 @@ export default function Home() {
       <section className="bg-[#dda9c3]/30 py-16">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="font-script text-5xl text-[#2e2b2d] mb-6">Delivery & Pickup</h2>
+            <h2 className="text-4xl font-bold text-[#2e2b2d] mb-6 tracking-wide">Delivery & Pickup</h2>
             <p className="text-gray-700 leading-relaxed">
               We offer self-pickup from our home bakery kitchen, or you can book third-party couriers such as Grab and Lalamove. As our creations are freshly made without preservatives, they are best enjoyed soon after pickup or delivery. Please note that all orders require a minimum of 1 week in advance.
             </p>
@@ -272,7 +269,7 @@ export default function Home() {
       <section id="workshops" className="watercolor-bg py-16">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="font-script text-5xl text-[#2e2b2d] mb-6">Baking Workshops</h2>
+            <h2 className="text-4xl font-bold text-[#2e2b2d] mb-6 tracking-wide">Baking Workshops</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               Learn the art of handcrafted baking! Join Operations Manager Frankie for hands-on, small-group baking workshops. We cover everything from piping techniques to cookies, macarons, and artisanal cake decoration. Register today!
             </p>
@@ -293,7 +290,7 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <h2 className="font-script text-5xl text-[#2e2b2d] mb-6">Food Safety Policy</h2>
+            <h2 className="text-4xl font-bold text-[#2e2b2d] mb-6 tracking-wide">Food Safety Policy</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               At Mon Chéri Bake, every creation is handmade with care, passion, and attention to quality. We are committed to maintaining a clean and organised baking workspace, using fresh and quality ingredients, proper handling and storage of ingredients, regular cleaning and sanitising of baking areas, and using dedicated baking equipment separated from regular household use to maintain the highest hygiene standards.
             </p>
@@ -305,7 +302,7 @@ export default function Home() {
       {/* FAQ Section */}
       <section className="bg-[#a5c79a] py-16 text-white" id="faq">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="font-script text-5xl text-center text-white mb-2 drop-shadow-sm">Frequently Asked Questions (FAQ)</h2>
+          <h2 className="text-4xl font-bold text-center text-white mb-2 tracking-wide drop-shadow-sm">Frequently Asked Questions (FAQ)</h2>
           <p className="text-center text-xs uppercase tracking-widest text-[#dbe3ee]/80 mb-10 font-bold">Frequently Asked Questions</p>
           
           <div className="space-y-4">
@@ -339,9 +336,9 @@ export default function Home() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Image src="/logo.png" alt="Mon Chéri Bake Logo" width={48} height={48} className="rounded-full object-cover bg-white/10 p-1" />
-              <div>
-                <h3 className="font-script text-3xl text-[#c084a0] font-bold leading-none">Mon Chéri</h3>
-                <p className="text-[10px] uppercase tracking-widest text-[#a5c79a] font-bold mt-1">Bake • Singapore</p>
+              <div className="text-left">
+                <h3 className="text-2xl font-bold text-[#c084a0] leading-none tracking-wide">Mon Chéri Bake</h3>
+                <p className="text-[10px] uppercase tracking-widest text-[#a5c79a] font-bold mt-1">Singapore</p>
               </div>
             </div>
             <p className="text-xs text-[#faf6f0]/70 leading-relaxed">
