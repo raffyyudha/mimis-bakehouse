@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mon Cheri Bake - Handcrafted Cakes & Baking Workshops",
-  description: "Established in 2015, Mon Cheri Bake is a Singapore home-based handmade bakery. We craft premium cakes, cupcakes, seasonal gift boxes, and host interactive baking workshops. Order minimum 1 week in advance.",
+  title: "Mon Chéri Bake - Handcrafted Cakes & Baking Workshops",
+  description: "Established in 2015, Mon Chéri Bake is a Singapore home-based handmade bakery. We craft premium cakes, cupcakes, seasonal gift boxes, and host interactive baking workshops. Order minimum 1 week in advance.",
 };
 
 export default function RootLayout({
