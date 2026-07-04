@@ -53,7 +53,10 @@ export default function Home() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const openWhatsApp = (message?: string) => {
-    window.open("https://wa.me/6597254135", "_blank");
+    const url = message 
+      ? `https://wa.me/6597254135?text=${encodeURIComponent(message)}` 
+      : "https://wa.me/6597254135";
+    window.open(url, "_blank");
   };
 
   return (
@@ -99,14 +102,14 @@ export default function Home() {
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700">
             <a href="#specialties" className="hover:text-gray-900 font-medium">SPECIALTIES</a>
             <a href="#workshops" className="hover:text-gray-900 font-medium">WORKSHOPS</a>
-            <button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to request a quote for a custom cake.")} className="hover:text-gray-900 font-medium">CUSTOM CAKE</button>
+            <button type="button" onClick={() => openWhatsApp()} className="hover:text-gray-900 font-medium">CUSTOM CAKE</button>
             <a href="#about-mon-cheri" className="hover:text-gray-900">ABOUT MON CHÉRI BAKE</a>
             <a href="#contact" className="hover:text-gray-900">CONTACT</a>
           </nav>
 
           {/* Desktop Nav Right */}
           <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700">
-            <button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to make an inquiry with Mon Chéri Bake.")} className="text-[#c084a0] hover:text-[#a06080] flex items-center gap-2 font-medium">
+            <button type="button" onClick={() => openWhatsApp()} className="text-[#c084a0] hover:text-[#a06080] flex items-center gap-2 font-medium">
               WHATSAPP CHAT <span>💬</span>
             </button>
           </div>
@@ -151,7 +154,7 @@ export default function Home() {
           </a>
           <button 
             type="button" 
-            onClick={() => { openWhatsApp("Hi Frankie, I'd like to request a quote for a custom cake."); setIsMobileMenuOpen(false); }} 
+            onClick={() => { openWhatsApp(); setIsMobileMenuOpen(false); }} 
             className="hover:text-[#c084a0] font-semibold text-sm text-left py-2 border-b border-white/20 text-gray-800 text-left"
           >
             CUSTOM CAKE
@@ -172,7 +175,7 @@ export default function Home() {
           </a>
           <button 
             type="button" 
-            onClick={() => { openWhatsApp("Hi Frankie, I'd like to make an inquiry with Mon Chéri Bake."); setIsMobileMenuOpen(false); }} 
+            onClick={() => { openWhatsApp(); setIsMobileMenuOpen(false); }} 
             className="text-[#c084a0] hover:text-[#a06080] font-bold text-sm text-left py-2 flex items-center gap-2"
           >
             WHATSAPP CHAT 💬
@@ -194,9 +197,9 @@ export default function Home() {
           </h2>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 max-w-md mx-auto px-4">
-            <button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to place an order.")} className="w-full sm:w-auto bg-[#c084a0] text-white px-8 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold shadow-md">Order (WA)</button>
+            <button type="button" onClick={() => openWhatsApp()} className="w-full sm:w-auto bg-[#c084a0] text-white px-8 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold shadow-md">Order (WA)</button>
             <a href="#workshops" className="w-full sm:w-auto bg-[#c084a0] text-white px-8 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold shadow-md text-center">Workshops</a>
-            <button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to request a quote for a custom cake.")} className="w-full sm:w-auto bg-[#c084a0] text-white px-8 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold shadow-md">Quote Request</button>
+            <button type="button" onClick={() => openWhatsApp()} className="w-full sm:w-auto bg-[#c084a0] text-white px-8 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold shadow-md">Quote Request</button>
           </div>
         </div>
       </section>
@@ -217,7 +220,7 @@ export default function Home() {
           <p className="text-gray-600 mb-10">Baked with joy, made with love, and created from the heart. ❤️</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {categories.map((cat) => (
-              <button type="button" onClick={() => openWhatsApp(`Hi Frankie, I'm interested in ordering ${cat.name}.`)} key={cat.name} className="group text-center w-full">
+              <button type="button" onClick={() => openWhatsApp(`Hi Mon Chéri Bake, I saw your ${cat.name} on the website and would like to place an order. Thanks!`)} key={cat.name} className="group text-center w-full">
                 <div className="aspect-square overflow-hidden rounded-lg mb-3">
                   <Image src={cat.img} alt={cat.name} width={300} height={300} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                 </div>
@@ -273,7 +276,7 @@ export default function Home() {
             <p className="text-gray-700 leading-relaxed mb-6">
               Learn the art of handcrafted baking! Join Operations Manager Frankie for hands-on, small-group baking workshops. We cover everything from piping techniques to cookies, macarons, and artisanal cake decoration. Register today!
             </p>
-            <button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to inquire about registering for a baking workshop.")} className="bg-[#c084a0] text-white px-6 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold">Browse Classes</button>
+            <button type="button" onClick={() => openWhatsApp()} className="bg-[#c084a0] text-white px-6 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold">Browse Classes</button>
           </div>
           <div className="rounded-lg overflow-hidden shadow-lg border border-[#e6dace]">
             <Image src="/workshop.jpg" alt="Baking Workshop at Mon Chéri Bake" width={500} height={350} className="w-full object-cover" />
@@ -294,7 +297,7 @@ export default function Home() {
             <p className="text-gray-700 leading-relaxed mb-6">
               At Mon Chéri Bake, every creation is handmade with care, passion, and attention to quality. We are committed to maintaining a clean and organised baking workspace, using fresh and quality ingredients, proper handling and storage of ingredients, regular cleaning and sanitising of baking areas, and using dedicated baking equipment separated from regular household use to maintain the highest hygiene standards.
             </p>
-            <button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to contact you regarding food safety / other inquiries.")} className="bg-[#c084a0] text-white px-6 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold">Contact Us</button>
+            <button type="button" onClick={() => openWhatsApp()} className="bg-[#c084a0] text-white px-6 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold">Contact Us</button>
           </div>
         </div>
       </section>
@@ -385,10 +388,10 @@ export default function Home() {
           <div>
             <h4 className="font-bold text-sm text-[#c084a0] uppercase tracking-wider mb-5 pb-1 border-b border-white/10">Mon Chéri</h4>
             <ul className="space-y-2.5 text-xs text-[#faf6f0]/80">
-              <li><button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to inquire about baking workshops.")} className="hover:text-[#c084a0] transition text-left">Workshops</button></li>
+              <li><button type="button" onClick={() => openWhatsApp()} className="hover:text-[#c084a0] transition text-left">Workshops</button></li>
               <li><a href="#about-mon-cheri" className="hover:text-[#c084a0] transition block">Our Story</a></li>
               <li><a href="#contact" className="hover:text-[#c084a0] transition block">Self-Pickup</a></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to ask about your food safety policy.")} className="hover:text-[#c084a0] transition text-left">Food Safety</button></li>
+              <li><button type="button" onClick={() => openWhatsApp()} className="hover:text-[#c084a0] transition text-left">Food Safety</button></li>
               <li><a href="#contact" className="hover:text-[#c084a0] transition block">Contact Us</a></li>
             </ul>
           </div>
@@ -396,12 +399,12 @@ export default function Home() {
           <div>
             <h4 className="font-bold text-sm text-[#c084a0] uppercase tracking-wider mb-5 pb-1 border-b border-white/10">Specialties</h4>
             <ul className="space-y-2.5 text-xs text-[#faf6f0]/80">
-              <li><button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to order a custom cake.")} className="hover:text-[#c084a0] transition text-left">Artisanal Cakes</button></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to order a seasonal gift box.")} className="hover:text-[#c084a0] transition text-left">Seasonal Gift Boxes</button></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to order cookies.")} className="hover:text-[#c084a0] transition text-left">Handcrafted Cookies</button></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to order macarons.")} className="hover:text-[#c084a0] transition text-left">Premium Macarons</button></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to order brownies.")} className="hover:text-[#c084a0] transition text-left">Fudgy Brownies</button></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Frankie, I'd like to order cupcakes.")} className="hover:text-[#c084a0] transition text-left">Cupcakes</button></li>
+              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Cakes on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Artisanal Cakes</button></li>
+              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Seasonal Gift Boxes on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Seasonal Gift Boxes</button></li>
+              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Cookies on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Handcrafted Cookies</button></li>
+              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Macarons on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Premium Macarons</button></li>
+              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Brownies on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Fudgy Brownies</button></li>
+              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Cupcakes on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Cupcakes</button></li>
             </ul>
           </div>
 
