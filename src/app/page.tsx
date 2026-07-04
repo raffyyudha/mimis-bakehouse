@@ -43,7 +43,7 @@ const faqs = [
   },
   {
     q: "Does Mon Chéri Bake host baking classes and workshops?",
-    a: "Yes! We conduct Baking Workshops & Class Registrations guided directly by our Operations Manager, Frankie. The classes focus on hands-on techniques for cake decorating, cookies, and macarons."
+    a: "Yes! We conduct Baking Workshops & Class. The classes focus on hands-on techniques for cake decorating, cookies, and macarons. Contact us for more information."
   }
 ];
 
@@ -273,7 +273,7 @@ export default function Home() {
           <div>
             <h2 className="text-4xl font-bold text-[#2e2b2d] mb-6 tracking-wide">Baking Workshops</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Learn the art of handcrafted baking! Join Operations Manager Frankie for hands-on, small-group baking workshops. We cover everything from piping techniques to cookies, macarons, and artisanal cake decoration. Register today!
+              Join our hands-on baking workshop and learn to create delicious treats in a fun and friendly environment. Perfect for beginners and baking enthusiasts alike.
             </p>
             <button type="button" onClick={() => openWhatsApp()} className="bg-[#c084a0] text-white px-6 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold">Browse Classes</button>
           </div>
