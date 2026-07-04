@@ -196,10 +196,9 @@ export default function Home() {
             MON CHÉRI BAKE
           </h2>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 max-w-md mx-auto px-4">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 max-w-xs mx-auto px-4">
             <button type="button" onClick={() => openWhatsApp()} className="w-full sm:w-auto bg-[#c084a0] text-white px-8 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold shadow-md">Order (WA)</button>
             <a href="#workshops" className="w-full sm:w-auto bg-[#c084a0] text-white px-8 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold shadow-md text-center">Workshops</a>
-            <button type="button" onClick={() => openWhatsApp()} className="w-full sm:w-auto bg-[#c084a0] text-white px-8 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold shadow-md">Quote Request</button>
           </div>
         </div>
       </section>
