@@ -294,10 +294,9 @@ export default function Home() {
           </div>
           <div>
             <h2 className="text-4xl font-bold text-[#2e2b2d] mb-6 tracking-wide">Food Safety Policy</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed">
               At Mon Chéri Bake, every creation is handmade with care, passion, and attention to quality. We are committed to maintaining a clean and organised baking workspace, using fresh and quality ingredients, proper handling and storage of ingredients, regular cleaning and sanitising of baking areas, and using dedicated baking equipment separated from regular household use to maintain the highest hygiene standards.
             </p>
-            <button type="button" onClick={() => openWhatsApp()} className="bg-[#c084a0] text-white px-6 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold">Contact Us</button>
           </div>
         </div>
       </section>
