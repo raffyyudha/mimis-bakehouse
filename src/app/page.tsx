@@ -5,15 +5,72 @@ import Image from "next/image";
 import Link from "next/link";
 
 const categories = [
-  { name: "Macarons", img: "/fotobaru/mackaron.jpg" },
-  { name: "Cakes", img: "/fotobaru/cakes.jpg" },
-  { name: "Cookies", img: "/fotobaru/cookies.jpg" },
-  { name: "Cupcakes", img: "/fotobaru/cupcake.jpg" },
-  { name: "Chinese New Year Cookies", img: "/fotobaru/cnycookie.jpg" },
-  { name: "Christmas Treats", img: "/fotobaru/christmasttreat.jpg" },
-  { name: "Special Occasions (Valentine's Day, Mooncake Festival)", img: "/fotobaru/spessialcouction.jpg" },
-  { name: "Wedding", img: "/fotobaru/weddingcake.jpg" },
+  { slug: "macarons", name: "Macarons", img: "/Feedback/word/media/macaronsbaru.jpeg" },
+  { slug: "cakes", name: "Cakes", img: "/Feedback/word/media/cakebaru.jpeg" },
+  { slug: "cookies", name: "Cookies", img: "/Feedback/word/media/cookiesbaru.jpeg" },
+  { slug: "cupcakes", name: "Cupcakes", img: "/Feedback/word/media/cupcakesbaru.jpeg" },
+  { slug: "cny-cookies", name: "Chinese New Year Cookies", img: "/Feedback/word/media/cnybaru.jpeg" },
+  { slug: "christmas-treats", name: "Christmas Treats", img: "/Feedback/word/media/chritsmasttreatsbaryu.jpeg" },
+  { slug: "special-occasions", name: "Special Occasions", img: "/Feedback/word/media/specialoccasionbaru.jpeg" },
+  { slug: "handy-treats", name: "Handy Treats", img: "/Feedback/word/media/handytreatesbaru.jpeg" },
+  { slug: "rollcake", name: "Roll Cakes", img: "/albums/rollcake/129056462_4641810775888832_2827320090733285357_n.jpg" },
 ];
+
+const categoryDisplayNames: Record<string, string> = {
+  macarons: "Macarons",
+  cakes: "Cakes",
+  cookies: "Cookies",
+  cupcakes: "Cupcakes",
+  "cny-cookies": "Chinese New Year Cookies",
+  "christmas-treats": "Christmas Treats",
+  "special-occasions": "Special Occasions",
+  "handy-treats": "Handy Treats",
+  rollcake: "Roll Cakes",
+  workshops: "Workshops",
+};
+
+const albumPhotos: Record<string, string[]> = {
+  macarons: [
+    "/albums/macarons/101072984_3796324527104132_5188242037400403968_n.jpg",
+    "/albums/macarons/107607873_3963516337051616_5476259058296997516_n.jpg",
+    "/albums/macarons/117237500_4090345424368706_2073769802178012337_n.jpg",
+    "/albums/macarons/93844868_3640421506027769_3156385226905616384_n.jpg",
+  ],
+  cakes: [
+    "/albums/cakes/117590463_4128645447205370_28364431248957582_n.jpg",
+    "/albums/cakes/118580616_4212054392197808_9025770118981895096_n.jpg",
+    "/albums/cakes/135556712_4804755429594365_857285175300432791_n.jpg",
+    "/albums/cakes/158212999_5070981869638385_6989175094749494404_n.jpg",
+  ],
+  cookies: [],
+  cupcakes: [
+    "/albums/cupcakes/119219289_4282165745186672_4960263698569376344_n.jpg",
+    "/albums/cupcakes/121967186_4460236684046243_4742567535709393830_n.jpg",
+    "/albums/cupcakes/124943328_4555548734515037_3116405311042009949_n.jpg",
+    "/albums/cupcakes/557365500_31367953779514502_4802339777506547852_n.jpg",
+  ],
+  "cny-cookies": [
+    "/albums/cny-cookies/49089386_2357568854313047_1001483706528956416_n.jpg",
+    "/albums/cny-cookies/49129583_2361889227214343_4453225472079167488_n.jpg",
+    "/albums/cny-cookies/49191245_2349112878491978_1681082545053106176_n.jpg",
+    "/albums/cny-cookies/49380222_2350842108319055_5621501274315816960_n.jpg",
+  ],
+  "christmas-treats": [
+    "/albums/christmas-treats/129056462_4641810775888832_2827320090733285357_n.jpg",
+    "/albums/christmas-treats/131233438_4712961508773758_3992632452432737281_n.jpg",
+    "/albums/christmas-treats/48407303_2337079029695363_2186716950183280640_n.jpg",
+    "/albums/christmas-treats/48417425_2344757328927533_9092601621405237248_n.jpg",
+  ],
+  "special-occasions": [],
+  "handy-treats": [],
+  rollcake: [
+    "/albums/rollcake/129056462_4641810775888832_2827320090733285357_n.jpg",
+    "/albums/rollcake/131233438_4712961508773758_3992632452432737281_n.jpg",
+    "/albums/rollcake/48407303_2337079029695363_2186716950183280640_n.jpg",
+    "/albums/rollcake/48417425_2344757328927533_9092601621405237248_n.jpg",
+  ],
+  workshops: [],
+};
 
 const features = [
   { icon: "https://ext.same-assets.com/765638743/3035081009.webp", text: "Order online with 1 week's notice" },
@@ -27,23 +84,23 @@ const features = [
 const faqs = [
   {
     q: "How do I place an order at Mon Chéri Bake?",
-    a: "You can place an order directly via WhatsApp! Simply click on any of our specialty categories, favorite items, or the 'Order (WA)' buttons to open a chat directly with Frankie. We will discuss your design preferences, date availability, and confirm your order details."
+    a: "Contact Mon Chéri Bake directly via WhatsApp or Email. We'll assist you with your order, discuss your requirements, confirm availability, and finalize the details with you."
   },
   {
     q: "What is the minimum pre-order lead time?",
-    a: "Since all of our cakes and sweet creations are freshly handmade without preservatives in small batches, we require a minimum pre-order lead time of 1 week."
+    a: "Each Mon Chéri Bake creation is handcrafted to order using fresh ingredients and made in small batches. To ensure every order receives the attention it deserves, we recommend placing your order at least one week in advance."
   },
   {
-    q: "What delivery and pickup methods are supported?",
-    a: "We offer Self-Pickup directly from our home bakery kitchen in Singapore. Alternatively, customers can independently book third-party courier services (such as GrabExpress Car or Lalamove) for collection."
+    q: "What delivery and pickup options are available?",
+    a: "We offer self-pickup from our home bakery in Singapore. If you prefer delivery, you may arrange a third-party courier service, such as GrabExpress or Lalamove, to collect your order on your behalf."
   },
   {
     q: "What are your kitchen hygiene and food safety standards?",
-    a: "We take food hygiene and safety very seriously. Our baking workspace is sanitised regularly, ingredients are stored under proper conditions, and we use dedicated baking equipment separate from regular household cooking utensils."
+    a: "Every Mon Chéri Bake creation is prepared with the highest standards of hygiene and care. Our baking workspace is regularly cleaned and sanitised, ingredients are stored under proper conditions to preserve freshness, and dedicated baking equipment is used to ensure a safe and hygienic preparation process."
   },
   {
     q: "Does Mon Chéri Bake host baking classes and workshops?",
-    a: "Yes! We conduct Baking Workshops & Class. The classes focus on hands-on techniques for cake decorating, cookies, and macarons. Contact us for more information."
+    a: "Absolutely! We offer engaging, hands-on baking workshops designed for beginners and baking enthusiasts alike. Our classes include cake decorating, cookie baking, and macaron-making, with private sessions available for children's parties, small corporate team-building events, and special occasions. Get in touch with us via WhatsApp or Email for more information and bookings."
   }
 ];
 
@@ -51,6 +108,19 @@ export default function Home() {
   const [bannerDismissed, setBannerDismissed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [activeAlbum, setActiveAlbum] = useState<string | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (activeAlbum || selectedPhoto) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [activeAlbum, selectedPhoto]);
 
   const openWhatsApp = (message?: string) => {
     const url = message 
@@ -100,19 +170,12 @@ export default function Home() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700">
-            <a href="#specialties" className="hover:text-gray-900 font-medium">SPECIALTIES</a>
+            <a href="#about-mon-cheri" className="hover:text-gray-900 font-medium">ABOUT MON CHÉRI BAKE</a>
+            <a href="#our-creations" className="hover:text-gray-900 font-medium">OUR CREATIONS</a>
             <a href="#workshops" className="hover:text-gray-900 font-medium">WORKSHOPS</a>
-            <button type="button" onClick={() => openWhatsApp()} className="hover:text-gray-900 font-medium">CUSTOM CAKE</button>
-            <a href="#about-mon-cheri" className="hover:text-gray-900">ABOUT MON CHÉRI BAKE</a>
-            <a href="#contact" className="hover:text-gray-900">CONTACT</a>
+            <a href="#faq" className="hover:text-gray-900 font-medium">FAQ</a>
+            <a href="#contact" className="hover:text-gray-900 font-medium">CONTACT</a>
           </nav>
-
-          {/* Desktop Nav Right */}
-          <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700">
-            <button type="button" onClick={() => openWhatsApp()} className="text-[#c084a0] hover:text-[#a06080] flex items-center gap-2 font-medium">
-              WHATSAPP CHAT <span>💬</span>
-            </button>
-          </div>
 
           {/* Mobile Hamburguer button (visible on mobile only) */}
           <div className="lg:hidden flex items-center">
@@ -139,11 +202,18 @@ export default function Home() {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-[#dbe3ee] border-t border-gray-300/40 px-6 py-4 flex flex-col gap-3 relative z-15 shadow-inner">
           <a 
-            href="#specialties" 
+            href="#about-mon-cheri" 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="hover:text-[#c084a0] font-semibold text-sm text-left py-2 border-b border-white/20 text-gray-800"
+          >
+            ABOUT MON CHÉRI BAKE
+          </a>
+          <a 
+            href="#our-creations" 
             onClick={() => setIsMobileMenuOpen(false)} 
             className="hover:text-[#c084a0] font-semibold text-sm text-left py-2 border-b border-white/20 text-gray-800"
           >
-            SPECIALTIES
+            OUR CREATIONS
           </a>
           <a 
             href="#workshops" 
@@ -152,19 +222,12 @@ export default function Home() {
           >
             WORKSHOPS
           </a>
-          <button 
-            type="button" 
-            onClick={() => { openWhatsApp(); setIsMobileMenuOpen(false); }} 
-            className="hover:text-[#c084a0] font-semibold text-sm text-left py-2 border-b border-white/20 text-gray-800 text-left"
-          >
-            CUSTOM CAKE
-          </button>
           <a 
-            href="#about-mon-cheri" 
+            href="#faq" 
             onClick={() => setIsMobileMenuOpen(false)}
             className="hover:text-[#c084a0] font-semibold text-sm text-left py-2 border-b border-white/20 text-gray-800"
           >
-            ABOUT MON CHÉRI BAKE
+            FAQ
           </a>
           <a 
             href="#contact" 
@@ -173,35 +236,16 @@ export default function Home() {
           >
             CONTACT
           </a>
-          <button 
-            type="button" 
-            onClick={() => { openWhatsApp(); setIsMobileMenuOpen(false); }} 
-            className="text-[#c084a0] hover:text-[#a06080] font-bold text-sm text-left py-2 flex items-center gap-2"
-          >
-            WHATSAPP CHAT 💬
-          </button>
         </div>
       )}
 
-      {/* Hero Section - fully bright background (no dark overlay) */}
+      {/* Hero Section - complete image without overlay text/buttons, full screen */}
       <section 
-        className="relative py-24 md:py-32 text-center bg-cover bg-center bg-no-repeat border-b border-[#e6dace]"
+        className="w-full h-[calc(100vh-124px)] min-h-[450px] bg-cover bg-center bg-no-repeat border-b border-[#e6dace]"
         style={{ 
           backgroundImage: `url('/heroimg.jpeg')` 
         }}
-      >
-        <div className="max-w-4xl mx-auto px-4">
-          <p className="text-2xl font-semibold text-white mb-2 tracking-wide" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6), 2px 2px 10px rgba(0,0,0,0.4)' }}>Welcome to...</p>
-          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-wide uppercase whitespace-nowrap" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7), 0 0 15px rgba(0,0,0,0.5)' }}>
-            MON CHÉRI BAKE
-          </h2>
-          
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 max-w-xs mx-auto px-4">
-            <button type="button" onClick={() => openWhatsApp()} className="w-full sm:w-auto bg-[#c084a0] text-white px-8 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold shadow-md">Order (WA)</button>
-            <a href="#workshops" className="w-full sm:w-auto bg-[#c084a0] text-white px-8 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold shadow-md text-center">Workshops</a>
-          </div>
-        </div>
-      </section>
+      />
 
       {/* Description Section */}
       <section className="hero-bg confetti-bg py-16 text-center border-b border-[#e6dace]">
@@ -212,18 +256,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* It's All About the Cake */}
-      <section id="specialties" className="py-16 bg-white border-b border-[#e6dace]/50">
+      {/* Our Creations Section */}
+      <section id="our-creations" className="py-16 bg-white border-b border-[#e6dace]/50">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-[#2e2b2d] mb-2 tracking-wide">Our Selected Specialties</h2>
+          <h2 className="text-4xl font-bold text-[#2e2b2d] mb-2 tracking-wide">Our Creations</h2>
           <p className="text-gray-600 mb-10">Baked with joy, made with love, and created from the heart. ❤️</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {categories.map((cat) => (
-              <button type="button" onClick={() => openWhatsApp(`Hi Mon Chéri Bake, I saw your ${cat.name} on the website and would like to place an order. Thanks!`)} key={cat.name} className="group text-center w-full">
+              <button 
+                type="button"
+                onClick={() => setActiveAlbum(cat.slug)}
+                key={cat.slug} 
+                className="group text-center w-full block text-decoration-none focus:outline-none"
+              >
                 <div className="aspect-square overflow-hidden rounded-lg mb-3">
                   <Image src={cat.img} alt={cat.name} width={300} height={300} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                 </div>
-                <h3 className="font-semibold text-sm text-gray-800 tracking-wide">{cat.name}</h3>
+                <h3 className="font-semibold text-sm text-gray-800 tracking-wide group-hover:text-[#c084a0] transition">{cat.name}</h3>
               </button>
             ))}
           </div>
@@ -272,12 +321,28 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl font-bold text-[#2e2b2d] mb-6 tracking-wide">Baking Workshops</h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Join our hands-on baking workshop and learn to create delicious treats in a fun and friendly environment. Perfect for beginners and baking enthusiasts alike.
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Whether you&apos;re looking for a fun family activity, a unique children&apos;s party, or a memorable corporate team-building experience, Mon Chéri Bake offers hands-on baking workshops for all ages and skill levels. Our small-group sessions provide a relaxed and interactive environment where participants can learn baking and decorating techniques while creating delicious treats together. Workshops can be tailored for families, children, friends, schools, and small corporate teams, making every session a fun, creative, and rewarding experience.
             </p>
-            <button type="button" onClick={() => openWhatsApp()} className="bg-[#c084a0] text-white px-6 py-3 rounded hover:bg-[#a06080] transition uppercase font-semibold">Browse Classes</button>
+            <div className="mb-4 text-gray-700">
+              <p className="font-bold mb-2">Perfect for:</p>
+              <ul className="space-y-1.5 pl-1">
+                <li>👨‍👩‍👧‍👦 Family Bonding</li>
+                <li>🎂 Children&apos;s Birthday Parties</li>
+                <li>🏢 Small Corporate Team Building</li>
+                <li>👩‍🍳 Friends &amp; Private Groups</li>
+                <li>🎓 Schools &amp; Community Groups</li>
+                <li>🎉 Special Celebrations</li>
+              </ul>
+            </div>
+            <p className="text-gray-700 leading-relaxed">
+              Workshops are conducted in small groups to ensure a personalised and enjoyable learning experience. Contact us via WhatsApp or Email to discuss your preferred workshop and group size.
+            </p>
           </div>
-          <div className="rounded-lg overflow-hidden shadow-lg border border-[#e6dace]">
+          <div 
+            onClick={() => setActiveAlbum("workshops")}
+            className="rounded-lg overflow-hidden shadow-lg border border-[#e6dace] hover:scale-[1.02] transition duration-300 cursor-pointer"
+          >
             <Image src="/workshop.jpg" alt="Baking Workshop at Mon Chéri Bake" width={500} height={350} className="w-full object-cover" />
           </div>
         </div>
@@ -301,26 +366,26 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-[#a5c79a] py-16 text-white" id="faq">
+      <section className="bg-[#b2cbe3] py-16 text-[#1c2e40]" id="faq">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-white mb-2 tracking-wide drop-shadow-sm">Frequently Asked Questions (FAQ)</h2>
-          <p className="text-center text-xs uppercase tracking-widest text-[#dbe3ee]/80 mb-10 font-bold">Frequently Asked Questions</p>
+          <h2 className="text-4xl font-bold text-center text-[#1c2e40] mb-2 tracking-wide drop-shadow-sm">Frequently Asked Questions (FAQ)</h2>
+          <p className="text-center text-xs uppercase tracking-widest text-[#5c7080] mb-10 font-bold">Frequently Asked Questions</p>
           
           <div className="space-y-4">
             {faqs.map((faq, index) => {
               const isOpen = openFaqIndex === index;
               return (
-                <div key={index} className="border-b border-white/20 pb-4">
+                <div key={index} className="border-b border-black/10 pb-4">
                   <button
                     type="button"
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full flex justify-between items-center text-left py-3 focus:outline-none hover:text-[#dbe3ee] transition duration-200"
+                    className="w-full flex justify-between items-center text-left py-3 focus:outline-none hover:text-[#c084a0] transition duration-200 text-[#1c2e40]"
                   >
                     <span className="font-bold text-sm sm:text-base pr-4">{faq.q}</span>
                     <span className="text-xl font-bold flex-shrink-0">{isOpen ? "−" : "+"}</span>
                   </button>
                   {isOpen && (
-                    <p className="mt-2 text-xs sm:text-sm text-white/90 leading-relaxed pl-1 animate-in fade-in slide-in-from-top duration-250">
+                    <p className="mt-2 text-xs sm:text-sm text-[#2c3e50] leading-relaxed pl-1 animate-in fade-in slide-in-from-top duration-250">
                       {faq.a}
                     </p>
                   )}
@@ -331,21 +396,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Redesigned Premium Footer */}
+      {/* Simplified Footer */}
       <footer id="contact" className="bg-[#2c1a17] text-[#faf6f0] py-16 border-t border-[#e6dace]/10">
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-12">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Image src="/logo.png" alt="Mon Chéri Bake Logo" width={48} height={48} className="rounded-full object-cover bg-white/10 p-1" />
               <div className="text-left">
-                <h3 className="text-2xl font-bold text-[#c084a0] leading-none tracking-wide">Mon Chéri Bake</h3>
+                <h3 className="text-2xl font-bold text-[#faf6f0] leading-none tracking-wide">Mon Chéri Bake</h3>
                 <p className="text-[10px] uppercase tracking-widest text-[#a5c79a] font-bold mt-1">Singapore</p>
               </div>
             </div>
-            <p className="text-xs text-[#faf6f0]/70 leading-relaxed">
-              A home-based handmade baking journey prepared with passion, care, and a sprinkle of love. We are committed to serving delicious treats and sharing joyful baking skills.
-            </p>
-            {/* Official SVG icons replacing standard emojis */}
+            
+            {/* Social Icons */}
             <div className="flex gap-3 pt-2">
               <a 
                 href="https://www.facebook.com/i.love.moncheribake/" 
@@ -383,59 +446,132 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
-            <h4 className="font-bold text-sm text-[#c084a0] uppercase tracking-wider mb-5 pb-1 border-b border-white/10">Mon Chéri</h4>
-            <ul className="space-y-2.5 text-xs text-[#faf6f0]/80">
-              <li><button type="button" onClick={() => openWhatsApp()} className="hover:text-[#c084a0] transition text-left">Workshops</button></li>
-              <li><a href="#about-mon-cheri" className="hover:text-[#c084a0] transition block">Our Story</a></li>
-              <li><a href="#contact" className="hover:text-[#c084a0] transition block">Self-Pickup</a></li>
-              <li><button type="button" onClick={() => openWhatsApp()} className="hover:text-[#c084a0] transition text-left">Food Safety</button></li>
-              <li><a href="#contact" className="hover:text-[#c084a0] transition block">Contact Us</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-sm text-[#c084a0] uppercase tracking-wider mb-5 pb-1 border-b border-white/10">Specialties</h4>
-            <ul className="space-y-2.5 text-xs text-[#faf6f0]/80">
-              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Cakes on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Artisanal Cakes</button></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Seasonal Gift Boxes on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Seasonal Gift Boxes</button></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Cookies on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Handcrafted Cookies</button></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Macarons on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Premium Macarons</button></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Brownies on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Fudgy Brownies</button></li>
-              <li><button type="button" onClick={() => openWhatsApp("Hi Mon Chéri Bake, I saw your Cupcakes on the website and would like to place an order. Thanks!")} className="hover:text-[#c084a0] transition text-left">Cupcakes</button></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-sm text-[#c084a0] uppercase tracking-wider mb-5 pb-1 border-b border-white/10">Contact & Location</h4>
-            <div className="space-y-4 text-xs text-[#faf6f0]/80">
-              <div className="leading-relaxed">
-                <span className="font-bold text-white">Main Kitchen:</span><br />
-                Self-Pickup Singapore<br />
-                (Home-based Kitchen)
+          <div className="space-y-4">
+            <h4 className="font-bold text-lg text-[#faf6f0] uppercase tracking-wider">Contact</h4>
+            <div className="space-y-3 text-sm text-[#faf6f0]/90">
+              <div>
+                <a 
+                  href="https://wa.me/6597254135?text=Hi%20Mon%20Ch%C3%A9ri%20Bake!%20I%20would%20like%20to%20..." 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="hover:text-[#c084a0] transition flex items-center gap-2 font-semibold"
+                >
+                  📞 +65 9725 4135 (WhatsApp)
+                </a>
               </div>
-              <div className="space-y-1">
-                <div>
-                  <span className="font-bold text-white">Contact Frankie:</span><br />
-                  <a href="https://wa.me/6597254135" target="_blank" rel="noreferrer" className="hover:text-[#c084a0] transition flex items-center gap-1.5 mt-0.5 font-semibold">
-                    📞 +65 9725 4135 (WA)
-                  </a>
-                </div>
-                <div className="pt-1.5">
-                  <span className="font-bold text-white">Business Email:</span><br />
-                  <a href="mailto:mon.cheri.bake@gmail.com" className="hover:text-[#c084a0] transition block mt-0.5">
-                    ✉️ mon.cheri.bake@gmail.com
-                  </a>
-                </div>
+              <div>
+                <a 
+                  href="mailto:mon.cheri.bake@gmail.com?subject=Hi%20Mon%20Ch%C3%A9ri%20Bake!%20I%20would%20like%20to%20..." 
+                  className="hover:text-[#c084a0] transition flex items-center gap-2 font-semibold"
+                >
+                  ✉️ mon.cheri.bake@gmail.com
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 mt-12 pt-8 border-t border-[#e6dace]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#faf6f0]/60 text-center md:text-left font-sans">
+        <div className="max-w-6xl mx-auto px-4 mt-12 pt-8 border-t border-[#e6dace]/10 flex justify-between items-center text-xs text-[#faf6f0]/60">
           <p>© 2026 Mon Chéri Bake. All rights reserved.</p>
         </div>
       </footer>
+
+      {/* Album Gallery Modal */}
+      {activeAlbum && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-md z-[50] flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300"
+          onClick={() => setActiveAlbum(null)}
+        >
+          <div 
+            className="bg-[#faf6f0] text-gray-800 rounded-3xl w-full max-w-5xl h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300 border border-[#e6dace]/40"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="bg-[#dbe3ee]/60 backdrop-blur-md px-6 py-4 flex items-center justify-between border-b border-[#e6dace]/40 flex-shrink-0">
+              <div className="text-left">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#2e2b2d] tracking-wide">
+                  {categoryDisplayNames[activeAlbum] || activeAlbum}
+                </h2>
+                <p className="text-gray-500 text-xs font-medium mt-0.5">
+                  {albumPhotos[activeAlbum]?.length === 0 
+                    ? "Coming Soon" 
+                    : `${albumPhotos[activeAlbum]?.length || 0} photo${(albumPhotos[activeAlbum]?.length || 0) === 1 ? "" : "s"} in this album`}
+                </p>
+              </div>
+              <button 
+                type="button" 
+                onClick={() => setActiveAlbum(null)}
+                className="w-10 h-10 rounded-full hover:bg-black/5 flex items-center justify-center text-gray-500 hover:text-gray-800 transition text-2xl font-light focus:outline-none"
+              >
+                &times;
+              </button>
+            </div>
+
+            {/* Modal Content / Photo Grid */}
+            <div className="flex-1 overflow-y-auto p-6 sm:p-8">
+              {(!albumPhotos[activeAlbum] || albumPhotos[activeAlbum].length === 0) ? (
+                <div className="max-w-md mx-auto bg-white/60 backdrop-blur-sm border border-dashed border-[#e6dace] rounded-2xl p-10 text-center shadow-sm my-12">
+                  <div className="text-4xl mb-4">🥐</div>
+                  <h3 className="text-lg font-bold text-gray-700 mb-2">Fresh Bakes Coming Soon!</h3>
+                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
+                    We are currently baking and preparing photos for this category. Stay tuned for fresh creations! ❤️
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                  {albumPhotos[activeAlbum].map((photo, index) => (
+                    <div 
+                      key={photo}
+                      onClick={() => setSelectedPhoto(photo)}
+                      className="group relative aspect-square bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-[1.03] transition-all duration-300 cursor-pointer border border-gray-100 animate-in fade-in zoom-in duration-300"
+                    >
+                      <Image 
+                        src={photo} 
+                        alt={`${categoryDisplayNames[activeAlbum]} photo ${index + 1}`} 
+                        fill
+                        className="object-cover group-hover:brightness-95 transition-all duration-300"
+                        sizes="(max-w-768px) 50vw, (max-w-1024px) 33vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span className="bg-white/90 text-gray-800 text-[10px] font-semibold px-2.5 py-1 rounded-full shadow-md backdrop-blur-sm transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                          View Photo 🔍
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Fullscreen Lightbox Modal */}
+      {selectedPhoto && (
+        <div 
+          className="fixed inset-0 bg-black/95 z-[60] flex items-center justify-center p-4 animate-in fade-in duration-300"
+          onClick={() => setSelectedPhoto(null)}
+        >
+          <button 
+            type="button" 
+            className="absolute top-6 right-6 text-white hover:text-gray-300 text-3xl font-light focus:outline-none transition z-50 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm"
+            onClick={() => setSelectedPhoto(null)}
+          >
+            &times;
+          </button>
+          
+          <div className="relative max-w-5xl max-h-[85vh] w-full h-full flex items-center justify-center">
+            <Image 
+              src={selectedPhoto} 
+              alt="Fullscreen photo" 
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
+          </div>
+        </div>
+      )}
     </main>
   );
 }
